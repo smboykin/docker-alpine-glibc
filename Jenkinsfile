@@ -10,9 +10,8 @@ node {
     }
     stage('Build and tag image') {
         // Use the provided build script
-        sh "docker build -t ${imageName} --build-arg BASE_IMAGE=${baseImageName} "
-            + " --build-arg BUILD_VERSION=${imageMajorVersion} ."
-            image = docker.image(imageName);
+        sh "docker build -t ${imageName} --build-arg BASE_IMAGE=${baseImageName} --build-arg BUILD_VERSION=${imageMajorVersion} ."
+        image = docker.image(imageName);
 
     }
     stage('Push image') {
